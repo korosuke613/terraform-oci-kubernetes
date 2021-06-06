@@ -17,4 +17,8 @@ resource "oci_core_instance" "test_instance" {
     source_id = var.instance_image_ocid_ubuntu2004
     source_type = "image"
   }
+
+  metadata = {
+    ssh_authorized_keys = var.ssh_public_key
+  }
 }
