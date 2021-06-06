@@ -23,6 +23,11 @@ variable "instance_image_ocid_ubuntu2004" {
   default = "ocid1.image.oc1.ap-osaka-1.aaaaaaaa4opxgypfsfz7pu2hqka47tdynl3vgoy5ejckofqkygkxj2xnjijq"
 }
 
+variable "instance_image_ocid_oracle83_arm" {
+  # https://docs.oracle.com/en-us/iaas/images/image/549ace3b-c303-474f-a838-6744affc1c28/
+  default = "ocid1.image.oc1.ap-osaka-1.aaaaaaaaae7wa7br3cupoaiqtftj3ht2nmw2tvdryq5wryjqj6pibz22kqva"
+}
+
 variable "ssh_public_key" {
   default = ""
 }
