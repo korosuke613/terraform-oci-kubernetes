@@ -7,7 +7,7 @@ variable "compartment_ocid" {
 }
 
 variable "name" {
-  default = "terraform-test"
+  default = "k8s-cluster-arm"
 }
 
 variable "vcn_cidr_block" {

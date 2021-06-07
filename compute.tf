@@ -2,16 +2,16 @@ data "oci_identity_availability_domains" "ads" {
   compartment_id = var.tenancy_ocid
 }
 
-resource "oci_core_instance" "test_instance" {
+resource "oci_core_instance" "master-node" {
   count               = 1
   availability_domain = data.oci_identity_availability_domains.ads.availability_domains[0].name
   compartment_id      = var.compartment_ocid
-  display_name        = var.name
+  display_name        = "${var.name}-master-node"
 
   shape               = "VM.Standard.A1.Flex"
   shape_config {
     memory_in_gbs = 12
-    ocpus = 1
+    ocpus = 2
   }
 
   create_vnic_details {
