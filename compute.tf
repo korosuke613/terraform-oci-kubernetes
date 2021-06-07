@@ -41,3 +41,34 @@ resource "oci_core_instance" "master-node" {
     )))
   }
 }
+
+resource "oci_core_instance" "worker-node-1" {
+  count               = 1
+  availability_domain = data.oci_identity_availability_domains.ads.availability_domains[0].name
+  compartment_id      = var.compartment_ocid
+  display_name        = "${var.name}-worker-node-1"
+
+  shape = "VM.Standard.A1.Flex"
+  shape_config {
+    memory_in_gbs = 6
+    ocpus         = 1
+  }
+
+  create_vnic_details {
+    subnet_id = oci_core_subnet.test_subnet.id
+  }
+
+  source_details {
+    source_id   = var.instance_image_ocid_oracle79_arm
+    source_type = "image"
+  }
+
+  metadata = {
+    ssh_authorized_keys = var.ssh_public_key
+    user_data = base64encode(join("\n", tolist([
+      "#!/usr/bin/env bash",
+      "set -x",
+      (data.template_file.setup.rendered)],
+    )))
+  }
+}
