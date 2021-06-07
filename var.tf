@@ -41,3 +41,8 @@ variable "nsg_ssh_port" {
   description = "SSH Port"
   default     = 22
 }
+
+variable "nsg_kubernetes_port" {
+  description = "kubernetes Port"
+  default     = 6443
+}
