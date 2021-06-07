@@ -19,7 +19,7 @@ resource "oci_core_instance" "master-node" {
   }
 
   source_details {
-    source_id = var.instance_image_ocid_oracle83_arm
+    source_id   = var.instance_image_ocid_oracle79_arm
     source_type = "image"
   }
 

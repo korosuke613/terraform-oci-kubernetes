@@ -28,6 +28,11 @@ variable "instance_image_ocid_oracle83_arm" {
   default = "ocid1.image.oc1.ap-osaka-1.aaaaaaaaae7wa7br3cupoaiqtftj3ht2nmw2tvdryq5wryjqj6pibz22kqva"
 }
 
+variable "instance_image_ocid_oracle79_arm" {
+  # https://docs.oracle.com/en-us/iaas/images/image/7e44cded-7bd3-410c-bb4c-f1a83cf8a786/
+  default = "ocid1.image.oc1.ap-osaka-1.aaaaaaaah4raas5drc75cqhn6la5saqkhcz5rdccqh75eqram7ltemax4srq"
+}
+
 variable "ssh_public_key" {
   default = ""
 }
